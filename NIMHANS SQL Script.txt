@@ -1,0 +1,44 @@
+ create schema nimhans;
+
+ use nimhans;
+
+CREATE TABLE registered_users (
+    user_id int auto_increment not null,
+    country_code int,
+    whatsapp_number bigint unique,
+    name varchar(255),
+    primary key(user_id)
+);
+
+CREATE TABLE message_data (
+    message_id int auto_increment not null,
+    message_type varchar(255), 
+    message_url varchar(255),
+    message_text varchar(255),
+    primary key(message_id)
+);
+
+
+
+insert into message_data (message_type, message_url, message_text) values
+("text", null, "Hello1... how are you this is custom message you are seeing!!!"),
+("video", "https://onlinetestcase.com/wp-content/uploads/2023/06/1MB.mp4", "this is a audio 1 file for testing..."),
+("pdf", "https://www.clickdimensions.com/links/TestPDFfile.pdf", "this is a pdf 1 file for testing..."),
+("text", null, "Hello2... how are you this is custom message you are seeing!!!"),
+("video", "https://onlinetestcase.com/wp-content/uploads/2023/06/1MB.mp4", "this is a audio 2 file for testing..."),
+("pdf", "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf", "this is a pdf 2 file for testing..."),
+("text", null, "Hello3.... how are you this is custom message you are seeing!!!"),
+("video", "https://onlinetestcase.com/wp-content/uploads/2023/06/1MB.mp4", "this is a video 3 file for testing...");
+
+CREATE TABLE message_sent_data (
+    transaction_id bigint not null auto_increment,
+    message_id int not null ,
+    user_id int not null,
+    is_sent boolean default false,
+    message_time datetime not null,
+    FOREIGN KEY (message_id)
+    REFERENCES message_data(message_id),
+    FOREIGN KEY (user_id)
+    REFERENCES registered_users(user_id),
+    primary key(transaction_id)
+);
