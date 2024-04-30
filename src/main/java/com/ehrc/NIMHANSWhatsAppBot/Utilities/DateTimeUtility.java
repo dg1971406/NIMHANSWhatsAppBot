@@ -10,7 +10,7 @@ public class DateTimeUtility {
         //**************** START FROM HERE ****************
         Calendar date = Calendar.getInstance();
         long timeInSecs = date.getTimeInMillis();
-        Date modifiedDate = new Date(timeInSecs + (1 * 60 * 1000));
+        Date modifiedDate = new Date(timeInSecs + (2 * 60 * 1000));
         //This needs to be commented, if it goes to production...
         //**************** ENDS HERE ****************
 
@@ -38,7 +38,7 @@ public class DateTimeUtility {
         //**************** START FROM HERE ****************
         Calendar date = Calendar.getInstance();
         long timeInSecs = date.getTimeInMillis();
-        Date modifiedDate = new Date(timeInSecs + (2 * 60 * 1000));
+        Date modifiedDate = new Date(timeInSecs + (5 * 60 * 1000));
         //This needs to be commented, if it goes to production...
         //**************** ENDS HERE ****************
 
